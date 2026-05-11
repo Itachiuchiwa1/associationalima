@@ -1,11 +1,48 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@layer base {
+    :root {
+        color-scheme: light;
+    }
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f8fbff 0%, #eef4fc 50%, #ffffff 100%);
+        color: #0f2955;
+        font-feature-settings: "cv02" 1, "cv04" 1;
+    }
+
+    ::selection {
+        background-color: rgba(61, 213, 215, 0.18);
+        color: #0f2955;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-full bg-deme-cyan px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5;
+    }
+
+    .card-surface {
+        @apply rounded-[28px] bg-white shadow-premium border border-slate-200/80;
+    }
+}
+
+@layer utilities {
+    .bg-deme-dark { background-color: #0f2955 !important; }
+    .bg-deme-cyan { background-color: #3dd5d7 !important; }
+    .text-deme-cyan { color: #3dd5d7 !important; }
+    .text-deme-dark { color: #0f2955 !important; }
+    .border-deme-cyan { border-color: #3dd5d7 !important; }
+    .shadow-premium { box-shadow: 0 24px 80px rgba(15, 41, 85, 0.12); }
+    .shadow-soft { box-shadow: 0 24px 60px rgba(15, 41, 85, 0.08); }
+    .bg-gradient-hero { background: linear-gradient(135deg, #0f2955 0%, #3dd5d7 100%); }
+    .bg-gradient-subtle { background: linear-gradient(135deg, rgba(61, 213, 215, 0.18), rgba(15, 41, 85, 0.06)); }
+    .text-deme-gray { color: #64748b !important; }
 }
